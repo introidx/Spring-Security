@@ -33,6 +33,7 @@ public class UserController {
 
     @PostMapping("/")
     public User addUser(@RequestBody User user){
-        return this.addUser(user);
+        return this.userService.addUser(user);
+
     }
 }

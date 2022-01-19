@@ -18,7 +18,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+                .csrf().disable()// do not disable for production
+                .authorizeRequests()
                 .antMatchers("/public/**").hasRole("NORMAL")
                 .antMatchers("/users/**").hasRole("ADMIN")
                 .anyRequest()
